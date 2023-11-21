@@ -13,6 +13,8 @@ contract FalloutLevel is SetUpLevelTest {
         level = address(new FalloutFactory());
         super.setUp();
         lv = Fallout(payable(instance));
+        vm.deal(instance, 1000 ether);
+        vm.deal(player, 0.001 ether);
     }
 
     function exploitLevel() internal override {
