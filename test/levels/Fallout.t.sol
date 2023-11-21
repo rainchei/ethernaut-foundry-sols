@@ -12,7 +12,7 @@ contract FalloutLevel is SetUpLevelTest {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
         level = address(new FalloutFactory());
         super.setUp();
-        lv = Fallout(payable(instance));
+        lv = Fallout(instance);
         vm.deal(player, 0.01 ether);
     }
 
