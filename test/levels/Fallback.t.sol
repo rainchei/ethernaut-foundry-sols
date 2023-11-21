@@ -3,16 +3,16 @@
 pragma solidity ^0.8.0;
 
 import {SetUpLevelTest} from "../SetUpLevelTest.sol";
-import {Instance, InstanceFactory} from "ethernaut/levels/InstanceFactory.sol";
+import {Fallback, FallbackFactory} from "ethernaut/levels/FallbackFactory.sol";
 
-contract InstanceLevel is SetUpLevelTest {
-    Instance internal lv;
+contract FallbackLevel is SetUpLevelTest {
+    Fallback internal lv;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
-        level = address(new InstanceFactory());
+        level = address(new FallbackFactory());
         super.setUp();
-        lv = Instance(instance);
+        lv = Fallback(payable(instance));
     }
 
     function exploitLevel() internal override {

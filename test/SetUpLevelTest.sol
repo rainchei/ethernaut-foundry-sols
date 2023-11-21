@@ -6,7 +6,7 @@ import "forge-std/Test.sol";
 import {Ethernaut, Level} from "ethernaut/Ethernaut.sol";
 import {TestUtils} from "./utils/TestUtils.sol";
 
-abstract contract LevelBaseTest is TestUtils, Test {
+abstract contract SetUpLevelTest is TestUtils, Test {
     Ethernaut internal ethernaut;
     address internal level;
     address internal instance;
