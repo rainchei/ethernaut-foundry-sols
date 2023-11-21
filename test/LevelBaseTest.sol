@@ -35,6 +35,9 @@ abstract contract LevelBaseTest is TestUtils, Test {
         vm.startPrank(player);
         exploitLevel();
         vm.stopPrank();
-        assertTrue(submitLevelInstance(ethernaut, level, instance, player));
+        assertTrue(
+            submitLevelInstance(ethernaut, level, instance, player),
+            "Level is not cleared."
+        );
     }
 }
