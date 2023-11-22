@@ -10,10 +10,11 @@ contract ForceLevel is SetUpLevelTest {
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
+        playerBalance = 1 ether;
+        instanceBalance = 0 ether;
         level = address(new ForceFactory());
         super.setUp();
         lv = Force(instance);
-        vm.deal(player, 1 ether);
     }
 
     function exploitLevel() internal override {

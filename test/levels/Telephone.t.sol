@@ -10,6 +10,8 @@ contract TelephoneLevel is SetUpLevelTest {
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
+        playerBalance = 0 ether;
+        instanceBalance = 0 ether;
         level = address(new TelephoneFactory());
         super.setUp();
         lv = Telephone(instance);

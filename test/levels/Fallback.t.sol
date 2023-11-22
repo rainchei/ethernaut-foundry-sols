@@ -10,11 +10,11 @@ contract FallbackLevel is SetUpLevelTest {
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
+        instanceBalance = 0.001 ether;
+        playerBalance = 1000 ether;
         level = address(new FallbackFactory());
         super.setUp();
         lv = Fallback(payable(instance));
-        vm.deal(instance, 1000 ether);
-        vm.deal(player, 0.001 ether);
     }
 
     function exploitLevel() internal override {

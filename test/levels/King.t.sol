@@ -10,6 +10,8 @@ contract KingLevel is SetUpLevelTest {
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
+        playerBalance = 1 ether;
+        instanceBalance = 0.001 ether;
         level = address(new KingFactory());
         super.setUp();
         lv = King(payable(instance));

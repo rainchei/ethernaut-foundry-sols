@@ -10,10 +10,11 @@ contract FalloutLevel is SetUpLevelTest {
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
+        playerBalance = 0.01 ether;
+        instanceBalance = 0 ether;
         level = address(new FalloutFactory());
         super.setUp();
         lv = Fallout(instance);
-        vm.deal(player, 0.01 ether);
     }
 
     function exploitLevel() internal override {

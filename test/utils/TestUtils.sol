@@ -25,10 +25,10 @@ abstract contract TestUtils is TestBase {
         Ethernaut _ethernaut,
         address _level,
         address _player
-    ) internal returns (address instance) {
+    ) public payable returns (address instance) {
         vm.startPrank(_player);
         vm.recordLogs();
-        _ethernaut.createLevelInstance(Level(_level));
+        _ethernaut.createLevelInstance{value: msg.value}(Level(_level));
         Vm.Log[] memory entries = vm.getRecordedLogs();
         assert(entries.length != 0);
         // Recall that topics[0] is the event signature

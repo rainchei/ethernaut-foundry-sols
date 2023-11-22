@@ -10,6 +10,8 @@ contract CoinFlipLevel is SetUpLevelTest {
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
+        instanceBalance = 0 ether;
+        playerBalance = 0 ether;
         level = address(new CoinFlipFactory());
         super.setUp();
         lv = CoinFlip(instance);

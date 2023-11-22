@@ -10,6 +10,8 @@ contract VaultLevel is SetUpLevelTest {
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
+        playerBalance = 0 ether;
+        instanceBalance = 0 ether;
         level = address(new VaultFactory());
         super.setUp();
         lv = Vault(instance);

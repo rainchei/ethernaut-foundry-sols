@@ -9,12 +9,13 @@ import {TestUtils} from "./utils/TestUtils.sol";
 abstract contract SetUpLevelTest is TestUtils, Test {
     Ethernaut internal ethernaut;
     address internal level;
-    address internal instance;
 
     uint256 internal playerPrivateKey;
     address internal player;
+    uint256 internal playerBalance;
 
-    TestUtils internal utils;
+    address internal instance;
+    uint256 internal instanceBalance;
 
     function setUp() public virtual {
         // ethernaut
@@ -24,9 +25,14 @@ abstract contract SetUpLevelTest is TestUtils, Test {
             memory mnemonic = "test test test test test test test test test test test junk";
         playerPrivateKey = vm.deriveKey(mnemonic, 0);
         player = vm.addr(playerPrivateKey);
+        vm.deal(player, playerBalance + instanceBalance);
         // level
         ethernaut.registerLevel(Level(level));
-        instance = createLevelInstance(ethernaut, level, player);
+        instance = this.createLevelInstance{value: instanceBalance}(
+            ethernaut,
+            level,
+            player
+        );
     }
 
     function exploitLevel() internal virtual {}
