@@ -28,6 +28,9 @@ abstract contract SetUpLevelTest is TestUtils, Test {
         vm.deal(player, playerBalance + instanceBalance);
         // level
         ethernaut.registerLevel(Level(level));
+        // 1. adding "this" due to function call options can only be set
+        //    on external function calls or contract creations.
+        // 2. note that it is the player sending ETH to the instance
         instance = this.createLevelInstance{value: instanceBalance}(
             ethernaut,
             level,
