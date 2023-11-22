@@ -32,9 +32,7 @@ abstract contract SetUpLevelTest is TestUtils, Test {
     function exploitLevel() internal virtual {}
 
     function test_SubmitLevel() public {
-        vm.startPrank(player);
         exploitLevel();
-        vm.stopPrank();
         assertTrue(
             submitLevelInstance(ethernaut, level, instance, player),
             "Level is not cleared."
