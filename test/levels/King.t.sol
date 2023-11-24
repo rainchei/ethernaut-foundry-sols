@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {King, KingFactory} from "ethernaut/levels/KingFactory.sol";
 
 contract KingLevel is SetUpLevelTest {
-    King internal lv;
+    King internal king;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract KingLevel is SetUpLevelTest {
         instanceBalance = 0.001 ether;
         level = address(new KingFactory());
         super.setUp();
-        lv = King(payable(instance));
+        king = King(payable(instance));
     }
 
     function exploitLevel() internal override {

@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Vault, VaultFactory} from "ethernaut/levels/VaultFactory.sol";
 
 contract VaultLevel is SetUpLevelTest {
-    Vault internal lv;
+    Vault internal vault;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract VaultLevel is SetUpLevelTest {
         instanceBalance = 0 ether;
         level = address(new VaultFactory());
         super.setUp();
-        lv = Vault(instance);
+        vault = Vault(instance);
     }
 
     function exploitLevel() internal override {

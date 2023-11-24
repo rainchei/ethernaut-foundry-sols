@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Instance, InstanceFactory} from "ethernaut/levels/InstanceFactory.sol";
 
 contract InstanceLevel is SetUpLevelTest {
-    Instance internal lv;
+    Instance internal inst;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract InstanceLevel is SetUpLevelTest {
         instanceBalance = 0 ether;
         level = address(new InstanceFactory());
         super.setUp();
-        lv = Instance(instance);
+        inst = Instance(instance);
     }
 
     function exploitLevel() internal override {

@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Delegation, DelegationFactory} from "ethernaut/levels/DelegationFactory.sol";
 
 contract DelegationLevel is SetUpLevelTest {
-    Delegation internal lv;
+    Delegation internal delegation;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract DelegationLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new DelegationFactory());
         super.setUp();
-        lv = Delegation(instance);
+        delegation = Delegation(instance);
     }
 
     function exploitLevel() internal override {

@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Recovery, RecoveryFactory} from "ethernaut/levels/RecoveryFactory.sol";
 
 contract RecoveryLevel is SetUpLevelTest {
-    Recovery internal lv;
+    Recovery internal recovery;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract RecoveryLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new RecoveryFactory());
         super.setUp();
-        lv = Recovery(instance);
+        recovery = Recovery(instance);
     }
 
     function exploitLevel() internal override {

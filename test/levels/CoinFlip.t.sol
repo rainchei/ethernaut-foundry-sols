@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {CoinFlip, CoinFlipFactory} from "ethernaut/levels/CoinFlipFactory.sol";
 
 contract CoinFlipLevel is SetUpLevelTest {
-    CoinFlip internal lv;
+    CoinFlip internal coinFlip;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract CoinFlipLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new CoinFlipFactory());
         super.setUp();
-        lv = CoinFlip(instance);
+        coinFlip = CoinFlip(instance);
     }
 
     function exploitLevel() internal override {

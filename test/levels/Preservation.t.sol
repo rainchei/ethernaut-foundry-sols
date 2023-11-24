@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Preservation, PreservationFactory} from "ethernaut/levels/PreservationFactory.sol";
 
 contract PreservationLevel is SetUpLevelTest {
-    Preservation internal lv;
+    Preservation internal preservation;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract PreservationLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new PreservationFactory());
         super.setUp();
-        lv = Preservation(instance);
+        preservation = Preservation(instance);
     }
 
     function exploitLevel() internal override {

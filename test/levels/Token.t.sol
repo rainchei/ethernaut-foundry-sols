@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Token, TokenFactory} from "../helpers/TokenFactory.sol";
 
 contract TokenLevel is SetUpLevelTest {
-    Token internal lv;
+    Token internal token;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract TokenLevel is SetUpLevelTest {
         instanceBalance = 0 ether;
         level = address(new TokenFactory());
         super.setUp();
-        lv = Token(instance);
+        token = Token(instance);
     }
 
     function exploitLevel() internal override {

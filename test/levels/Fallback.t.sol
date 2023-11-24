@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Fallback, FallbackFactory} from "ethernaut/levels/FallbackFactory.sol";
 
 contract FallbackLevel is SetUpLevelTest {
-    Fallback internal lv;
+    Fallback internal fback;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract FallbackLevel is SetUpLevelTest {
         playerBalance = 1000 ether;
         level = address(new FallbackFactory());
         super.setUp();
-        lv = Fallback(payable(instance));
+        fback = Fallback(payable(instance));
     }
 
     function exploitLevel() internal override {

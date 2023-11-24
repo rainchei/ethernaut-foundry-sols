@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Fallout, FalloutFactory} from "../helpers/FalloutFactory.sol";
 
 contract FalloutLevel is SetUpLevelTest {
-    Fallout internal lv;
+    Fallout internal fallout;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract FalloutLevel is SetUpLevelTest {
         instanceBalance = 0 ether;
         level = address(new FalloutFactory());
         super.setUp();
-        lv = Fallout(instance);
+        fallout = Fallout(instance);
     }
 
     function exploitLevel() internal override {

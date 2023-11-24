@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {NaughtCoin, NaughtCoinFactory} from "ethernaut/levels/NaughtCoinFactory.sol";
 
 contract NaughtCoinLevel is SetUpLevelTest {
-    NaughtCoin internal lv;
+    NaughtCoin internal naughtCoin;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract NaughtCoinLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new NaughtCoinFactory());
         super.setUp();
-        lv = NaughtCoin(instance);
+        naughtCoin = NaughtCoin(instance);
     }
 
     function exploitLevel() internal override {

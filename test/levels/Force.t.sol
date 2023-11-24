@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Force, ForceFactory} from "ethernaut/levels/ForceFactory.sol";
 
 contract ForceLevel is SetUpLevelTest {
-    Force internal lv;
+    Force internal force;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract ForceLevel is SetUpLevelTest {
         instanceBalance = 0 ether;
         level = address(new ForceFactory());
         super.setUp();
-        lv = Force(instance);
+        force = Force(instance);
     }
 
     function exploitLevel() internal override {

@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Telephone, TelephoneFactory} from "ethernaut/levels/TelephoneFactory.sol";
 
 contract TelephoneLevel is SetUpLevelTest {
-    Telephone internal lv;
+    Telephone internal telephone;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract TelephoneLevel is SetUpLevelTest {
         instanceBalance = 0 ether;
         level = address(new TelephoneFactory());
         super.setUp();
-        lv = Telephone(instance);
+        telephone = Telephone(instance);
     }
 
     function exploitLevel() internal override {

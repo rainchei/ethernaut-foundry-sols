@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {GatekeeperOne, GatekeeperOneFactory} from "ethernaut/levels/GatekeeperOneFactory.sol";
 
 contract GatekeeperOneLevel is SetUpLevelTest {
-    GatekeeperOne internal lv;
+    GatekeeperOne internal gatekeeperOne;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract GatekeeperOneLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new GatekeeperOneFactory());
         super.setUp();
-        lv = GatekeeperOne(instance);
+        gatekeeperOne = GatekeeperOne(instance);
     }
 
     function exploitLevel() internal override {

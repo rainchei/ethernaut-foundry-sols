@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Privacy, PrivacyFactory} from "ethernaut/levels/PrivacyFactory.sol";
 
 contract PrivacyLevel is SetUpLevelTest {
-    Privacy internal lv;
+    Privacy internal privacy;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract PrivacyLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new PrivacyFactory());
         super.setUp();
-        lv = Privacy(instance);
+        privacy = Privacy(instance);
     }
 
     function exploitLevel() internal override {

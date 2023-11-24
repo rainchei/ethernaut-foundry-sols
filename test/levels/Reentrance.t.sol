@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Reentrance, ReentranceFactory} from "../helpers/ReentranceFactory.sol";
 
 contract ReentranceLevel is SetUpLevelTest {
-    Reentrance internal lv;
+    Reentrance internal reentrance;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract ReentranceLevel is SetUpLevelTest {
         instanceBalance = 0.001 ether;
         level = address(new ReentranceFactory());
         super.setUp();
-        lv = Reentrance(payable(instance));
+        reentrance = Reentrance(payable(instance));
     }
 
     function exploitLevel() internal override {

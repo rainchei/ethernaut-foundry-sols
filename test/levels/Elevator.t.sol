@@ -6,7 +6,7 @@ import {SetUpLevelTest} from "../SetUpLevelTest.sol";
 import {Elevator, ElevatorFactory} from "ethernaut/levels/ElevatorFactory.sol";
 
 contract ElevatorLevel is SetUpLevelTest {
-    Elevator internal lv;
+    Elevator internal elevator;
 
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
@@ -14,7 +14,7 @@ contract ElevatorLevel is SetUpLevelTest {
         playerBalance = 0 ether;
         level = address(new ElevatorFactory());
         super.setUp();
-        lv = Elevator(instance);
+        elevator = Elevator(instance);
     }
 
     function exploitLevel() internal override {
