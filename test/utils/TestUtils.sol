@@ -31,13 +31,18 @@ abstract contract TestUtils is TestBase {
         _ethernaut.createLevelInstance{value: msg.value}(Level(_level));
         Vm.Log[] memory entries = vm.getRecordedLogs();
         assert(entries.length != 0);
-        // Recall that topics[0] is the event signature
-        assert(
-            entries[0].topics[0] ==
+        // Find event LevelInstanceCreatedLog emitted from ethernaut
+        for (uint256 i; i < entries.length; ++i) {
+            // Recall that topics[0] is the event signature
+            if (
+                entries[i].topics[0] ==
                 keccak256("LevelInstanceCreatedLog(address,address,address)")
-        );
-        // 0x000000000000000000000000104fbc016f4bb334d775a19e8a6510109ac63e00 shiftLeft 96 bits
-        instance = address(bytes20(entries[0].topics[2] << 96));
+            ) {
+                // 0x000000000000000000000000104fbc016f4bb334d775a19e8a6510109ac63e00 shiftLeft 24 hex digits == 96 bits
+                instance = address(bytes20(entries[i].topics[2] << 96));
+            }
+        }
+        assert(instance != address(0));
         vm.stopPrank();
     }
 
