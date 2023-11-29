@@ -7,6 +7,14 @@ import "ethernaut/levels/base/Level.sol";
 
 interface IAlienCodex {
     function owner() external returns (address);
+
+    function makeContact() external;
+
+    function record(bytes32 _content) external;
+
+    function retract() external;
+
+    function revise(uint256 i, bytes32 _content) external;
 }
 
 contract AlienCodexFactory is Level, Test {
