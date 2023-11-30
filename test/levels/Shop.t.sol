@@ -15,9 +15,7 @@ contract ShopLevel is SetUpLevelTest {
         level = address(new ShopFactory());
         super.setUp();
         shop = Shop(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

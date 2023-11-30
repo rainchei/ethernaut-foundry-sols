@@ -15,9 +15,7 @@ contract RecoveryLevel is SetUpLevelTest {
         level = address(new RecoveryFactory());
         super.setUp();
         recovery = Recovery(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

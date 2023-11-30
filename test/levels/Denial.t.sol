@@ -15,9 +15,7 @@ contract DenialLevel is SetUpLevelTest {
         level = address(new DenialFactory());
         super.setUp();
         denial = Denial(payable(instance));
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

@@ -15,9 +15,7 @@ contract DexTwoLevel is SetUpLevelTest {
         level = address(new DexTwoFactory());
         super.setUp();
         dexTwo = DexTwo(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

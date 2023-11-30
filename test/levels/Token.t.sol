@@ -15,9 +15,7 @@ contract TokenLevel is SetUpLevelTest {
         level = address(new TokenFactory());
         super.setUp();
         token = Token(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

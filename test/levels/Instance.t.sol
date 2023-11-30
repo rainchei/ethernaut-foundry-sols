@@ -15,9 +15,7 @@ contract InstanceLevel is SetUpLevelTest {
         level = address(new InstanceFactory());
         super.setUp();
         inst = Instance(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

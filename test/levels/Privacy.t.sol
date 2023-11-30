@@ -15,9 +15,7 @@ contract PrivacyLevel is SetUpLevelTest {
         level = address(new PrivacyFactory());
         super.setUp();
         privacy = Privacy(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

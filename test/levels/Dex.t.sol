@@ -15,9 +15,7 @@ contract DexLevel is SetUpLevelTest {
         level = address(new DexFactory());
         super.setUp();
         dex = Dex(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

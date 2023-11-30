@@ -15,9 +15,7 @@ contract VaultLevel is SetUpLevelTest {
         level = address(new VaultFactory());
         super.setUp();
         vault = Vault(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

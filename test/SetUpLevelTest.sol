@@ -38,10 +38,7 @@ abstract contract SetUpLevelTest is TestUtils, Test {
         );
     }
 
-    function exploitLevel() internal virtual {}
-
     function test_SubmitLevel() public {
-        exploitLevel();
         assertTrue(
             submitLevelInstance(ethernaut, level, instance, player),
             "Level is not cleared."

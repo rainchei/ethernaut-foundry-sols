@@ -15,9 +15,7 @@ contract ElevatorLevel is SetUpLevelTest {
         level = address(new ElevatorFactory());
         super.setUp();
         elevator = Elevator(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

@@ -15,9 +15,7 @@ contract KingLevel is SetUpLevelTest {
         level = address(new KingFactory());
         super.setUp();
         king = King(payable(instance));
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

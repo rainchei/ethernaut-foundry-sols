@@ -15,9 +15,7 @@ contract FalloutLevel is SetUpLevelTest {
         level = address(new FalloutFactory());
         super.setUp();
         fallout = Fallout(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

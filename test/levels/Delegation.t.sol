@@ -15,9 +15,7 @@ contract DelegationLevel is SetUpLevelTest {
         level = address(new DelegationFactory());
         super.setUp();
         delegation = Delegation(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

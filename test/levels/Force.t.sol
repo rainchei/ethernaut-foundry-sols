@@ -15,9 +15,7 @@ contract ForceLevel is SetUpLevelTest {
         level = address(new ForceFactory());
         super.setUp();
         force = Force(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

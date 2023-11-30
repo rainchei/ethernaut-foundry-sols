@@ -15,9 +15,7 @@ contract GatekeeperTwoLevel is SetUpLevelTest {
         level = address(new GatekeeperTwoFactory());
         super.setUp();
         gatekeeperTwo = GatekeeperTwo(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

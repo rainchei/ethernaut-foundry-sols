@@ -15,9 +15,7 @@ contract PreservationLevel is SetUpLevelTest {
         level = address(new PreservationFactory());
         super.setUp();
         preservation = Preservation(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

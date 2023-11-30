@@ -15,9 +15,7 @@ contract PuzzleWalletLevel is SetUpLevelTest {
         level = address(new PuzzleWalletFactory());
         super.setUp();
         puzzleWallet = PuzzleWallet(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

@@ -15,9 +15,7 @@ contract FallbackLevel is SetUpLevelTest {
         level = address(new FallbackFactory());
         super.setUp();
         fback = Fallback(payable(instance));
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

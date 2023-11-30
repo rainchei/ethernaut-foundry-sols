@@ -15,9 +15,7 @@ contract NaughtCoinLevel is SetUpLevelTest {
         level = address(new NaughtCoinFactory());
         super.setUp();
         naughtCoin = NaughtCoin(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

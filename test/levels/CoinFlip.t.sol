@@ -15,9 +15,7 @@ contract CoinFlipLevel is SetUpLevelTest {
         level = address(new CoinFlipFactory());
         super.setUp();
         coinFlip = CoinFlip(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

@@ -15,9 +15,7 @@ contract ReentranceLevel is SetUpLevelTest {
         level = address(new ReentranceFactory());
         super.setUp();
         reentrance = Reentrance(payable(instance));
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

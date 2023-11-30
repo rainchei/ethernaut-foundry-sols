@@ -15,9 +15,7 @@ contract MagicNumLevel is SetUpLevelTest {
         level = address(new MagicNumFactory());
         super.setUp();
         magicNum = MagicNum(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

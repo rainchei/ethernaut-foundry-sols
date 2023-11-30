@@ -15,9 +15,7 @@ contract TelephoneLevel is SetUpLevelTest {
         level = address(new TelephoneFactory());
         super.setUp();
         telephone = Telephone(instance);
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }

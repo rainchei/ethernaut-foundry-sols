@@ -15,9 +15,7 @@ contract MotorbikeLevel is SetUpLevelTest {
         level = address(new MotorbikeFactory());
         super.setUp();
         motorbike = Motorbike(payable(instance));
-    }
 
-    function exploitLevel() internal override {
         /** CODE YOUR SOLUTION HERE */
     }
 }
