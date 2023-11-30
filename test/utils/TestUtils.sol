@@ -57,13 +57,19 @@ abstract contract TestUtils is TestBase {
         _ethernaut.submitLevelInstance(payable(_instance));
         Vm.Log[] memory entries = vm.getRecordedLogs();
         if (entries.length == 0) return false;
-        // first submission in the level emits an extra event playerScoreProfile
-        assert(
-            entries[1].topics[0] ==
+        // Find event LevelCompletedLog emitted from ethernaut
+        address player;
+        address levelAddress;
+        for (uint256 i; i < entries.length; ++i) {
+            // Recall that topics[0] is the event signature
+            if (
+                entries[i].topics[0] ==
                 keccak256("LevelCompletedLog(address,address,address)")
-        );
-        address player = address(bytes20(entries[1].topics[1] << 96));
-        address levelAddress = address(bytes20(entries[1].topics[3] << 96));
+            ) {
+                player = address(bytes20(entries[i].topics[1] << 96));
+                levelAddress = address(bytes20(entries[i].topics[3] << 96));
+            }
+        }
         success = (_player == player && _levelAddress == levelAddress);
         vm.stopPrank();
     }
