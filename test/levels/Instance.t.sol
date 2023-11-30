@@ -17,5 +17,9 @@ contract InstanceLevel is SetUpLevelTest {
         inst = Instance(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        string memory password = inst.password();
+        inst.authenticate(password);
+        vm.stopPrank();
     }
 }
