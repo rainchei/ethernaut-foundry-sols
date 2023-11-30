@@ -11,7 +11,7 @@ contract GatekeeperThreeLevel is SetUpLevelTest {
     function setUp() public override {
         /** SETUP SCENARIO - NO NEED TO CHANGE ANYTHING HERE */
         instanceBalance = 0 ether;
-        playerBalance = 0 ether;
+        playerBalance = 0.01 ether;
         level = address(new GatekeeperThreeFactory());
         super.setUp();
         gatekeeperThree = GatekeeperThree(payable(instance));
