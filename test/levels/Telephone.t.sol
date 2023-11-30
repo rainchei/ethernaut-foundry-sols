@@ -17,5 +17,8 @@ contract TelephoneLevel is SetUpLevelTest {
         telephone = Telephone(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        telephone.changeOwner(player);
+        vm.stopPrank();
     }
 }

