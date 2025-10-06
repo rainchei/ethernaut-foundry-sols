@@ -1,0 +1,17 @@
+{
+  "lib/ethernaut": {
+    "rev": "4331d032d49c437f9cfe5ee03630214c4ed5b841"
+  },
+  "lib/forge-std": {
+    "rev": "bdea49f9bb3c58c8c35850c3bdc17eaeea756e9a"
+  },
+  "lib/openzeppelin-contracts": {
+    "rev": "6bc1173c8e37ca7de2201a0230bb08e395074da1"
+  },
+  "lib/openzeppelin-contracts-08": {
+    "rev": "ecd2ca2cd7cac116f7a37d0e474bbb3d7d5e1c4d"
+  },
+  "lib/openzeppelin-contracts-upgradeable": {
+    "rev": "cd3bd5d04a7dcae73aac589c2059f082645d730d"
+  }
+}
