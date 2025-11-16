@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 import "forge-std/Test.sol";
 import {Ethernaut, Level} from "ethernaut/Ethernaut.sol";
 import {Statistics} from "ethernaut/metrics/Statistics.sol";
-import {TransparentUpgradeableProxy} from "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
+import {TransparentUpgradeableProxy} from "openzeppelin-contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
 
 abstract contract TestUtils is TestBase {
     function getEthernautWithStatsProxy() internal returns (Ethernaut e) {

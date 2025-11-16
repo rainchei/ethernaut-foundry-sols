@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "openzeppelin-contracts-08/utils/math/SafeMath.sol"; // Path change of openzeppelin contract
+import "openzeppelin-contracts-08/utils/math/Math.sol"; // Path change of openzeppelin contract
 
 contract Reentrance {
-    using SafeMath for uint256;
+    using Math for uint256;
     mapping(address => uint256) public balances;
 
     function donate(address _to) public payable {
-        balances[_to] = balances[_to].add(msg.value);
+        balances[_to] += msg.value;
     }
 
     function balanceOf(address _who) public view returns (uint256 balance) {

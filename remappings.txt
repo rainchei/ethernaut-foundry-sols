@@ -1,6 +1,7 @@
 ds-test/=lib/forge-std/lib/ds-test/src/
-ethernaut/=lib/ethernaut/contracts/contracts/
+ethernaut/=lib/ethernaut/contracts/src/
 forge-std/=lib/forge-std/src/
-openzeppelin-contracts-08/=lib/openzeppelin-contracts-08/contracts/
-@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
-@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
+openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/
+openzeppelin-contracts-08/=lib/ethernaut/contracts/lib/openzeppelin-contracts-08/contracts/
+openzeppelin-contracts-06/=lib/ethernaut/contracts/lib/openzeppelin-contracts-06/contracts/
+openzeppelin-upgradeable/=lib/ethernaut/contracts/lib/openzeppelin-contracts-upgradeable/contracts/
